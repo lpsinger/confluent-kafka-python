@@ -1,0 +1,21 @@
+name: Wheels
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-10.15]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v2.3.1
+
+      - uses: actions/upload-artifact@v2
+        with:
+          path: wheelhouse/*

@@ -1,3 +1,4 @@
 [submodule "librdkafka"]
 	path = librdkafka
-	url = https://github.com/edenhill/librdkafka.git
+	url = https://github.com/lpsinger/librdkafka.git
+	branch = sasl.oauthbearer.extensions-optional

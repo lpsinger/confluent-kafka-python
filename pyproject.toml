@@ -5,4 +5,4 @@ test-command = "pytest {project}/tests/test_Producer.py"
 before-all = "cd librdkafka && ./configure --enable-static && make && make install"
 
 [tool.cibuildwheel.linux]
-before-all = "yum install libcurl-devel"
+before-all = "yum install -y libcurl-devel"

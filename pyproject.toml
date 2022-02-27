@@ -3,3 +3,6 @@ skip = "*-musllinux_* pp* *_i686"
 test-requires = "-r tests/requirements.txt"
 test-command = "pytest {project}/tests/test_Producer.py"
 before-all = "cd librdkafka && ./configure --enable-static && make && make install"
+
+[tool.cibuildwheel.linux]
+before-all = "yum install curl-devel"

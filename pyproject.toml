@@ -1,8 +1,10 @@
 [tool.cibuildwheel]
+manylinux-x86_64-image = "manylinux_2_24"
+manylinux-i686-image = "manylinux_2_24"
 skip = "*-musllinux_* pp* *_i686"
 test-requires = "-r tests/requirements.txt"
 test-command = "pytest {project}/tests/test_Producer.py"
-before-all = "cd librdkafka && ./configure --enable-static && make && make install"
+before-all = "cd librdkafka && ./configure && make && make install"
 
 [tool.cibuildwheel.linux]
-before-all = "yum install -y libcurl-devel openssl-devel && cd librdkafka && ./configure --enable-static && make && make install"
+before-all = "apt-get update && apt-get -y install libcurl4-openssl-dev libssl-dev && cd librdkafka && ./configure && make && make install"
